@@ -2,20 +2,6 @@ CREATE DATABASE chat;
 
 USE chat;
 
-CREATE TABLE messages (
-  /* Describe your table here.*/
-  ID integer primary key,
-  username integer,
-  messageBody text,
-  roomname integer,
-  FOREIGN KEY(username) REFERENCES usernames(id),
-  FOREIGN KEY(roomname) REFERENCES roomnames(id)
-
-
-);
-
-/* Create other tables and define schemas for them here! */
-
 CREATE TABLE roomnames (
   /* Describe your table here.*/
   ID integer primary key,
@@ -31,6 +17,22 @@ CREATE TABLE usernames (
 
 
 );
+
+CREATE TABLE messages (
+  /* Describe your table here.*/
+  ID integer primary key,
+  username integer,
+  messageBody text,
+  roomname integer,
+  FOREIGN KEY(username) REFERENCES usernames(id),
+  FOREIGN KEY(roomname) REFERENCES roomnames(id)
+
+
+);
+
+/* Create other tables and define schemas for them here! */
+
+
 
 CREATE TABLE usernames_roomnames (
   /* Describe your table here.*/
