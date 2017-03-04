@@ -4,7 +4,7 @@ USE chat;
 
 CREATE TABLE roomnames (
   /* Describe your table here.*/
-  ID integer primary key,
+  ID integer primary key AUTO_INCREMENT,
   roomname text
 
 
@@ -12,7 +12,7 @@ CREATE TABLE roomnames (
 
 CREATE TABLE usernames (
   /* Describe your table here.*/
-  ID integer primary key,
+  ID integer primary key AUTO_INCREMENT,
   username text
 
 
@@ -20,23 +20,26 @@ CREATE TABLE usernames (
 
 CREATE TABLE messages (
   /* Describe your table here.*/
-  ID integer primary key,
-  username integer,
+  ID integer primary key AUTO_INCREMENT,
+  username text,
   messageBody text,
-  roomname integer,
-  FOREIGN KEY(username) REFERENCES usernames(id),
-  FOREIGN KEY(roomname) REFERENCES roomnames(id)
+  roomname text
+  -- FOREIGN KEY(username) REFERENCES usernames(id),
+  -- FOREIGN KEY(roomname) REFERENCES roomnames(id)
 
 
 );
 
+INSERT INTO messages (username, messageBody, roomname) VALUES 
+  ('batman', 'i am batman', 'batcave'), ('joker', 'HAHAHA', 'arkham asylum'),
+  ('allen', 'seventythreeee', 'vietnam');
 /* Create other tables and define schemas for them here! */
 
 
 
 CREATE TABLE usernames_roomnames (
   /* Describe your table here.*/
-  ID integer primary key,
+  ID integer primary key AUTO_INCREMENT,
   username integer,
   roomname integer,
   FOREIGN KEY(username) REFERENCES usernames(id),
