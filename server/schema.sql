@@ -4,26 +4,29 @@ USE chat;
 
 CREATE TABLE roomnames (
   /* Describe your table here.*/
-  ID integer primary key AUTO_INCREMENT,
-  roomname text
+  ID integer AUTO_INCREMENT,
+  roomname text,
+  Primary Key (ID)
 
 
 );
 
 CREATE TABLE usernames (
   /* Describe your table here.*/
-  ID integer primary key AUTO_INCREMENT,
-  username text
+  ID integer AUTO_INCREMENT,
+  username text,
+  Primary Key (ID)
 
 
 );
 
 CREATE TABLE messages (
   /* Describe your table here.*/
-  ID integer primary key AUTO_INCREMENT,
+  ID integer AUTO_INCREMENT,
   username text,
   messageBody text,
-  roomname text
+  roomname text,
+  Primary Key (ID)
   -- FOREIGN KEY(username) REFERENCES usernames(id),
   -- FOREIGN KEY(roomname) REFERENCES roomnames(id)
 
@@ -39,9 +42,10 @@ INSERT INTO messages (username, messageBody, roomname) VALUES
 
 CREATE TABLE usernames_roomnames (
   /* Describe your table here.*/
-  ID integer primary key AUTO_INCREMENT,
+  ID integer AUTO_INCREMENT,
   username integer,
   roomname integer,
+  Primary Key (ID),
   FOREIGN KEY(username) REFERENCES usernames(id),
   FOREIGN KEY(roomname) REFERENCES roomnames(id)
 
